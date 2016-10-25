@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 0d0ae748be879e342bfb86a6d5df9b96
+timeCreated: 1475607495
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - menuGO: {instanceID: 0}
+  - wallSeed: {instanceID: 0}
+  - player: {instanceID: 0}
+  - dad: {instanceID: 0}
+  - dogs: {instanceID: 0}
+  - cam: {instanceID: 0}
+  - canvas: {instanceID: 0}
+  - score: {instanceID: 0}
+  - dzs: {instanceID: 0}
+  - dzsPrefab: {fileID: 1000013588361708, guid: 8a74bb482125bec4ea21d7cba4f49984,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
