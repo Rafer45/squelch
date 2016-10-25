@@ -5,16 +5,6 @@ using System;
 
 public class MenuManager : MonoBehaviour {
 
-    // private string menuStates[2] {
-    //     get {
-    //         Debug.Log("menuStates[2] set as " + menuStates[2]);
-    //         return menuStates[2];
-    //     }
-
-    //     set {
-    //         menuStates[2] = value;
-    //     }
-    // }
     private int index = 2;
     private string[] menuStates = new string[4];
     private string menuState = "SQUELCH";
@@ -42,7 +32,6 @@ public class MenuManager : MonoBehaviour {
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject squelchMenu;
 
-    // This is getting a bit thick - may be moved somewhere else.
     private StartGame startGame;
     void Awake () {
         menuStates[0] = "CREDITS";
@@ -110,60 +99,26 @@ public class MenuManager : MonoBehaviour {
 
     void MovePlayer () {
         float nudge = rightEdge.transform.position.x;
-        // Debug.Log("nudge: " + nudge);
         player.position = new Vector3(MathFun.Mod(player.position.x + nudge, (nudge*2)) - nudge
                                      ,player.position.y
                                      ,player.position.z);
     }
 
     void Credits (bool b) {
-        // if (b) {
-            // menuStates[0] = "CREDITS";
-            // menuState = "CREDITS";
-            // top.SetActive(b);
-        // }
-        // else {
-            // menuStates[0] = "CREDITS";
-        // }
         creditsMenu.SetActive(b);
-        // if (b) cam.SendMessage("SetMaxY", -27F);
     }
 
     void Settings (bool b) {
-        // if (b) {
-        //     menuStates[1] = "SETTINGS\n\n";
-        //     menuState = "SETTINGS\n\n";
-        // }
-        // else {
-        //     menuStates[1] = "SETTINGS";
-        // }
         settingsMenu.SetActive(b);
     }
 
     void Squelch (bool b) {
-        // if (b) {
-        //     menuStates[2] = "SHOP";
-        //     top.SetActive(!b);
-        // }
-        top.SetActive(!b);
+        top.SetActive(!(b || menuState == ""));
         squelchMenu.SetActive(b);
-        if (b) {
-            cam.SendMessage("SetMaxY", Mathf.Infinity);
-        } else {
-            cam.SendMessage("SetMaxY", -27F);
-        }
+        cam.SendMessage("SetMaxY", b ? Mathf.Infinity : -27F);
     }
 
     void Shop (bool b) {
-        // if (b) {
-        //     menuStates[3] = "SHOP\n\n";
-        //     menuState = "SHOP\n\n";
-        //     top.SetActive(b);
-        //     Debug.Log("menuStates[2] = \"SHOP\\n\\n\"");
-        //     Debug.Log(menuStates[2]);
-        // } else {
-        //     menuStates[3] = "SHOP";
-        // }
         shopMenu.SetActive(b);
     }
 
@@ -185,9 +140,6 @@ public class MenuManager : MonoBehaviour {
         menuStates[3] = "SHOP";
 
         LeftChoice();
-        // I am very sorry about this system.
         if (shop) RightChoice();
-        // menuState = "SQUELCH";
-        // StateChange("SQUELCH");
     }
 }

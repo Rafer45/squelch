@@ -15,7 +15,6 @@ public class ButtonPreview : MonoBehaviour {
 
     private GameObject price;
     private Text text;
-    // private Sprite prev;
     
     private GameObject mannequin;
     private Image mqImg;
@@ -39,7 +38,6 @@ public class ButtonPreview : MonoBehaviour {
 
         try   { SetPreview(sk.inventory[n]); }
         catch (System.IndexOutOfRangeException e) {
-            // Debug.Log("e: " + e);
             mannequin.SetActive(false);
             price.SetActive(false);
         }
@@ -49,7 +47,6 @@ public class ButtonPreview : MonoBehaviour {
         UpdateSkin();
     }
     
-    // Update is called once per frame
     void SetPreview (ShopKeeper.Skin skin) {
         this.skin = skin;
         UpdateSkin();

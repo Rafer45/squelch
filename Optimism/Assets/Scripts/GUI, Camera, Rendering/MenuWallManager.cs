@@ -41,8 +41,4 @@ public class MenuWallManager : MonoBehaviour {
 
         Destroy(this);
     }
-
-    // void Update () {
-    
-    // }
 }

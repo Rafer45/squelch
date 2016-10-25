@@ -54,6 +54,11 @@ public class NewPlayerController : MonoBehaviour {
 
         CheckWallTouches();
 
+        // DEBUG
+        if (Input.GetKeyDown("space")) {
+            FlickPlayer(new Vector2(100, 100));
+        }
+
     }
 
     void CheckTouchscreen () {

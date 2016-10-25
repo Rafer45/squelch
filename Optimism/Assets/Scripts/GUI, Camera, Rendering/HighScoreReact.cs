@@ -15,11 +15,6 @@ public class HighScoreReact : MonoBehaviour {
         tColor = text.color;
         sColor = shadow.effectColor;
     }
-
-    void OnEnable () {
-        DefaultColor();
-    }
-
     void OnHighScore (int score) {
         ColorFlip();
     }

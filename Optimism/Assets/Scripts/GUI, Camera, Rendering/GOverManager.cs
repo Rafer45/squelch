@@ -18,15 +18,11 @@ public class GOverManager : MonoBehaviour {
         pg = GetComponent<PauseGame>();
         sg = GetComponent<StartGame>();
         btm = GetComponent<BackToMain>();
-        // if (!PlayerPrefs.HasKey("high_score")) {
-        //     PlayerPrefs.SetInt("high_score", 0);
-        // }
         maxScore = PlayerPrefs.GetInt("high_score", 0);
     }
 
     void LateUpdate () {
         score = Mathf.Max(score, (int) player.position.y);
-        // Debug.Log("score: " + score);
     }
 
     void GameOver () {
@@ -36,12 +32,11 @@ public class GOverManager : MonoBehaviour {
         pg.enabled = false;
 
         if (maxScore < score) {
-            // Debug.Log("OnHighScore called");
             maxScore = score;
             PlayerPrefs.SetInt("high_score", maxScore);
             resetMenu.BroadcastMessage("OnHighScore", maxScore);
         } else {
-            ;
+            resetMenu.BroadcastMessage("DefaultColor");
         }
 
         gameObject.SendMessage("SaveMoney", SendMessageOptions.DontRequireReceiver);

@@ -63,21 +63,14 @@ public class ShopKeeper : MonoBehaviour {
         }
     }
 
-    // public Accessory eye;
     public Skin[] inventory = new Skin[2];
-    // public Skin yellow; /*= new Skin("Yellow", Color.yellow, new Accessory ())*/
-    // public Skin red;
     
     public GameObject player;
     private GameObject[] shopButtons = new GameObject[10];
-    // private GameObject moneyStamp;
     void Awake () {
         foreach (Skin skin in inventory) {
             skin.unlocked = PlayerPrefs.GetInt(skin.address, 0) == 1;
-            // DEBUG:
-            // skin.unlocked = PlayerPrefs.GetInt(skin.address, 0) == 0;
         }
-        // moneyStamp = transform.Find("MoneyStamp").gameObject;
         for (int i = 0; i < 10; i++) {
             shopButtons[i] = transform.GetChild(i).gameObject;
         }
@@ -89,7 +82,6 @@ public class ShopKeeper : MonoBehaviour {
         try {
             skin = inventory[i];
         } catch (System.IndexOutOfRangeException e) {
-            // Debug.Log("e: " + e);
             return;
         }
         
@@ -103,7 +95,6 @@ public class ShopKeeper : MonoBehaviour {
     }
 
     public Skin GetSkinByAddress (string address) {
-        // Debug.Log("GetSkinByAddress called.");
         foreach (Skin skin in inventory) {
             if (skin.address == address) {
                 return skin;

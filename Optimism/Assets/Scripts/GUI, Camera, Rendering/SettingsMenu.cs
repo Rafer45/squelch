@@ -3,13 +3,11 @@ using System.Collections;
 
 public class SettingsMenu : MonoBehaviour {
 
-    // private mPlayers;
     public bool music;
     public bool sfx;
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private UpdateButtonScript musicButton;
 
-    // [SerializeField] private AudioSource[] sfxSources;
     [SerializeField] private UpdateButtonScript sfxButton;
     [SerializeField] private AudioSource miasma;
     
@@ -23,13 +21,11 @@ public class SettingsMenu : MonoBehaviour {
         Sfx  (false);
     }
 
-    // Should've used polymorphism here.
     public void Music (bool toggle=true) {
         if (toggle) {
             music = !music;
             PlayerPrefs.SetInt("settings_music", BoolToInt(music));
         }
-        // Debug.Log("music: " + music);
         musicSource.mute = !music;
         musicButton.UpdateButton(music);
     }

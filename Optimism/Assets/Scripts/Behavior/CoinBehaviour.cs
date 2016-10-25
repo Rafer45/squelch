@@ -11,11 +11,13 @@ public class CoinBehaviour : MonoBehaviour {
     void Awake () {
         sm = GameObject.Find("_GM").GetComponent<SettingsMenu>();
         counter = GameObject.Find("_GM/MainMenu");
-        audioSource = GameObject.Find("Player").GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D (Collider2D other) {
         if (other.CompareTag("Player")) {
+            if (audioSource == null) {
+                audioSource = other.gameObject.GetComponent<AudioSource>();
+            }
             if (sm.sfx) {
                 audioSource.PlayOneShot(pickupSound);
             }

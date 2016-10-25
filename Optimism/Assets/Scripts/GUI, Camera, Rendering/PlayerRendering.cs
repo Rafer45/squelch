@@ -26,7 +26,6 @@ public class PlayerRendering : MonoBehaviour {
     }
 
     void Start () {
-        // Debug.Log("sm: " + sm.name);
         WearSkin(sk.GetSkinByAddress(PlayerPrefs.GetString("player_skin", "squelch")));
     }
 
@@ -89,11 +88,7 @@ public class PlayerRendering : MonoBehaviour {
                 c += Time.deltaTime*0.05F;
                 c %= 1F;
                 col = Color.HSVToRGB(c,0.4F,1F);
-                // inv = MathFun.Inverse(col);
                 flesh.color = col;
-                // sr.color = inv;
-                // eyeSr1.color = inv;
-                // eyeSr2.color = inv;
                 blur.SendMessage("SetBlurColor", col);
             }
             yield return null;

@@ -13,8 +13,6 @@ public class ShowCoins : MonoBehaviour {
         text.text = count.ToString();
     }
     
-    // Update is called once per frame
-
     void CoinGet (int val) {
         text.text = (count += val).ToString();
     }

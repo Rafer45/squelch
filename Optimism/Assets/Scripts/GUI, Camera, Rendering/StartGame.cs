@@ -11,17 +11,14 @@ public class StartGame : MonoBehaviour {
     [SerializeField] private GameObject score;
     [SerializeField] private PauseGame pg;
     [SerializeField] private BackToMain btm;
-    // private Object dzs;
-
     [SerializeField] public GameObject dzs;
     [SerializeField] private GameObject dzsPrefab;
 
     private Vector3 defaultDzsPos = new Vector3(-6F, -5F, 0F);
 
     public bool restart = false;
-    // Use this for initialization
+
     void OnEnable () {
-        // Debug.Log("restart: " + restart);
         if (!player.activeSelf) player.SetActive(true);
         player.SendMessage("OnStartGame", restart);
 
@@ -33,7 +30,6 @@ public class StartGame : MonoBehaviour {
         if (restart) {
             Destroy(dzs);
             dzs = (GameObject) Instantiate(dzsPrefab, defaultDzsPos, Quaternion.identity);
-            // Debug.Log("dzs: " + dzs);
             btm.dzs = dzs;
         }
 
@@ -50,10 +46,6 @@ public class StartGame : MonoBehaviour {
             dogs.SetActive(true);
         }
         dogs.BroadcastMessage("OnStartGame");
-
-        // if (!restart) {
-        //     canvas.SetActive(true);
-        // }
 
         if (restart) pg.enabled = false;
         pg.enabled = true;
