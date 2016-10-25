@@ -11,6 +11,7 @@ public class SettingsMenu : MonoBehaviour {
 
     // [SerializeField] private AudioSource[] sfxSources;
     [SerializeField] private UpdateButtonScript sfxButton;
+    [SerializeField] private AudioSource miasma;
     
     void Awake () {
         music = IntToBool(PlayerPrefs.GetInt("settings_music", 1));
@@ -38,6 +39,7 @@ public class SettingsMenu : MonoBehaviour {
             sfx = !sfx;
             PlayerPrefs.SetInt("settings_sfx", BoolToInt(sfx));
         }
+        miasma.mute = !sfx;
         sfxButton.UpdateButton(sfx);
     }
 
