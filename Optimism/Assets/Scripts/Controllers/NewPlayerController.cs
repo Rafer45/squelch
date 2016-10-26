@@ -4,9 +4,6 @@ using UnityEngine.EventSystems;
 
 public class NewPlayerController : MonoBehaviour {
 
-    // Debug / tweaking variables
-    public float debugSpeed = 100f;
-    public float sensitivity = 80f;
     public float maxVel = 20f;
     public int maxJumps = 2;
     private float sqrMaxVel;
@@ -40,7 +37,7 @@ public class NewPlayerController : MonoBehaviour {
         collHeight = cc.radius;
 
         audioSource = GetComponent<AudioSource>();
-        sm = GameObject.Find("_GM").GetComponent<SettingsMenu>();
+        try { sm = GameObject.Find("_GM").GetComponent<SettingsMenu>(); } catch {}
 
         blur = transform.Find("Blur").gameObject;
         sqrMaxVel = maxVel*maxVel;
@@ -53,11 +50,6 @@ public class NewPlayerController : MonoBehaviour {
         }
 
         CheckWallTouches();
-
-        // DEBUG
-        if (Input.GetKeyDown("space")) {
-            FlickPlayer(new Vector2(100, 100));
-        }
 
     }
 
@@ -114,6 +106,7 @@ public class NewPlayerController : MonoBehaviour {
             eye.GetComponent<Renderer>().enabled = false;
         }
         jumpsLeft--;
+        try {
         if (sm.sfx) {
             if (jumpsLeft > 0) {
                 audioSource.pitch = Random.Range(0.8F,0.9F);
@@ -127,6 +120,7 @@ public class NewPlayerController : MonoBehaviour {
                 audioSource.volume = 1F;
             }
         }
+        } catch {}
 
         rb.velocity = flick;
         

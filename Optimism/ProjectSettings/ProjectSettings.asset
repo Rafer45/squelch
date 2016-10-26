@@ -6,11 +6,11 @@ PlayerSettings:
   serializedVersion: 8
   productGUID: 44dc5d46553bfe3498a7bbff001ab7b4
   AndroidProfiler: 0
-  defaultScreenOrientation: 0
+  defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: IndefatigableGames
+  companyName: DefaultCompany
   productName: Squelch
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -33,8 +33,8 @@ PlayerSettings:
   displayResolutionDialog: 1
   iosAllowHTTPDownload: 1
   allowedAutorotateToPortrait: 1
-  allowedAutorotateToPortraitUpsideDown: 1
-  allowedAutorotateToLandscapeRight: 1
+  allowedAutorotateToPortraitUpsideDown: 0
+  allowedAutorotateToLandscapeRight: 0
   allowedAutorotateToLandscapeLeft: 1
   useOSAutorotation: 1
   use32BitDisplayBuffer: 1
@@ -179,7 +179,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 35bb7622a2fcf6d499198e2ddda67b2c, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []
